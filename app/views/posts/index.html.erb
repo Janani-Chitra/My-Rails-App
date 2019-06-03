@@ -1,0 +1,19 @@
+<h1>Listing posts</h1>
+
+<table border="1">
+  <tr>
+    <th>S no.</th>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+
+  <%= render :partial => @posts %>
+
+</table>
+
+<br />
+
+<%= link_to 'New post', new_post_path %>
+<%=link_to 'preview', preview_posts_path%>
+<%= link_to 'Back', root_path %>

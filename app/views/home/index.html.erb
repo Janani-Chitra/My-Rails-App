@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<title>Home</title>
+</head>
+<body>
+  <h1>Hi...! </h1>
+  <%= link_to "My Blog", posts_path %>
+<br>
+<br>
+  <div ng-app = "app" ng-controller= "ctrl">
+  <button ng-click = fun()>Click</button>
+  {{courses}}
+  </div>
+  <script>
+      var app = angular.module("app",[])
+      app.controller("ctrl",function($scope, $http){
+        $scope.fun = function(){
+          $http({
+                    method: 'GET',
+                    url: 'localhost:3000/posts/preview'
+                }).then(function (res) {
+                    $scope.courses = res.data;
+                });
+        }
+
+      })
+  </script>
+</body>
+</html>
